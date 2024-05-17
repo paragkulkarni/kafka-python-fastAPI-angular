@@ -1,0 +1,4 @@
+[submodule "v-front"]
+	path = v-front
+	url = https://github.com/paragkulkarni/v-front.git
+	branch = master
