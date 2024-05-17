@@ -1,0 +1,6 @@
+if python 3.12 then manually install
+pip install git+https://github.com/dpkp/kafka-python.git
+otherwize it has error for kafka-python
+
+Kafka ui by provictus
+http://localhost:18080/

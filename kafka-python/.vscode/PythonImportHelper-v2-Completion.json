@@ -1,0 +1,63 @@
+[
+    {
+        "label": "KafkaConsumer",
+        "importPath": "kafka",
+        "description": "kafka",
+        "isExtraImport": true,
+        "detail": "kafka",
+        "documentation": {}
+    },
+    {
+        "label": "KafkaProducer",
+        "importPath": "kafka",
+        "description": "kafka",
+        "isExtraImport": true,
+        "detail": "kafka",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "consumer",
+        "kind": 5,
+        "importPath": "kconsumer",
+        "description": "kconsumer",
+        "peekOfCode": "consumer = KafkaConsumer('KafkaExplored', bootstrap_servers='localhost:9093')\nprint('****consumer-',consumer)\nprint('*************')\nfor msg in consumer:\n    topic = msg[0]\n    value = msg[6]\n    print(msg)\n    print(f\"{topic}:{value.decode()}\")",
+        "detail": "kconsumer",
+        "documentation": {}
+    },
+    {
+        "label": "sendMessageToKafkaByProducer",
+        "kind": 2,
+        "importPath": "kproducer",
+        "description": "kproducer",
+        "peekOfCode": "def sendMessageToKafkaByProducer(usr,msg):\n    print(\"her*****e\")\n    the_dt = str(datetime.datetime.now(datetime.UTC))\n    user = usr\n    word = msg\n    sendObj = {\n        \"user\": user,\n        \"date\": the_dt,\n        \"word\": word,\n    }",
+        "detail": "kproducer",
+        "documentation": {}
+    },
+    {
+        "label": "producer",
+        "kind": 5,
+        "importPath": "kproducer",
+        "description": "kproducer",
+        "peekOfCode": "producer = KafkaProducer(bootstrap_servers='localhost:9093')\ndef sendMessageToKafkaByProducer(usr,msg):\n    print(\"her*****e\")\n    the_dt = str(datetime.datetime.now(datetime.UTC))\n    user = usr\n    word = msg\n    sendObj = {\n        \"user\": user,\n        \"date\": the_dt,\n        \"word\": word,",
+        "detail": "kproducer",
+        "documentation": {}
+    }
+]
