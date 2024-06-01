@@ -13,6 +13,7 @@ import authentication.auth_bearer as auth_bearer
 from fastapi.responses import JSONResponse
 
 import rabbitmq.connect as rabbitMQ
+from models.likepost import LikePost
 
 
 
@@ -86,14 +87,19 @@ async def postWord(data: Word):
 
 
 @app.post("/like", dependencies=[Depends(auth_bearer.JWTBearer()),])
-async def likePost():
-    insert_sql = text("INSERT INTO public.like_details(user_id, post_id, liked) VALUES (2, 22, True)")
+async def likePost(data: LikePost):
+    # -------write function to insert like and return like count for that post
+    insert_sql = text("INSERT INTO public.like_details(user_id, post_id, liked) VALUES ('%d', '%d', '%d')"%(data.user_id,data.post_id,data.liked))
     session.execute(insert_sql)
     session.commit()
     return {"post-like": "success"}
 
-
-
+@app.post("/getpost", dependencies=[Depends(auth_bearer.JWTBearer()),])
+async def getPostData():
+    getdata_sql = text("select * from public.voc_details")
+    data = session.execute(getdata_sql)
+    posts = data.mappings().all()
+    return posts
     
 @app.post("/logout")
 async def logout():

@@ -7,7 +7,7 @@ import time
 def encoderToken(user):
     payload={
         "name": user,
-        "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=600)
+        "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=24*60*60)
         }
     encoded_data = jwt.encode(payload,
                               key='secret',
