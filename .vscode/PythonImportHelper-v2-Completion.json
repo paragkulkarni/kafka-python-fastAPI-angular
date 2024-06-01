@@ -172,6 +172,14 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "pika",
         "kind": 6,
         "isExtraImport": true,
@@ -288,6 +296,14 @@
         "documentation": {}
     },
     {
+        "label": "LikePost",
+        "importPath": "models.likepost",
+        "description": "models.likepost",
+        "isExtraImport": true,
+        "detail": "models.likepost",
+        "documentation": {}
+    },
+    {
         "label": "consumer",
         "kind": 5,
         "importPath": "kafka-python.kconsumer",
@@ -328,7 +344,7 @@
         "kind": 2,
         "importPath": "vocamuch.authentication.auth_handler",
         "description": "vocamuch.authentication.auth_handler",
-        "peekOfCode": "def encoderToken(user):\n    payload={\n        \"name\": user,\n        \"exp\": datetime.now(tz=timezone.utc) + timedelta(seconds=600)\n        }\n    encoded_data = jwt.encode(payload,\n                              key='secret',\n                              algorithm=\"HS256\")\n    return encoded_data\ndef decoderToken(token):",
+        "peekOfCode": "def encoderToken(user):\n    payload={\n        \"name\": user,\n        \"exp\": datetime.now(tz=timezone.utc) + timedelta(seconds=24*60*60)\n        }\n    encoded_data = jwt.encode(payload,\n                              key='secret',\n                              algorithm=\"HS256\")\n    return encoded_data\ndef decoderToken(token):",
         "detail": "vocamuch.authentication.auth_handler",
         "documentation": {}
     },
@@ -402,6 +418,15 @@
         "description": "vocamuch.database.db",
         "peekOfCode": "database = 'vocamuch'\n# PYTHON FUNCTION TO CONNECT TO THE POSTGRESQL DATABASE AND\n# RETURN THE SQLACHEMY ENGINE OBJECT\ndef get_connection():\n    return create_engine(\n        url=\"postgresql://{0}:{1}@{2}:{3}/{4}\".format(\n            user, password, host, port, database\n        )\n    )\n# if __name__ == '__main__':",
         "detail": "vocamuch.database.db",
+        "documentation": {}
+    },
+    {
+        "label": "LikePost",
+        "kind": 6,
+        "importPath": "vocamuch.models.likepost",
+        "description": "vocamuch.models.likepost",
+        "peekOfCode": "class LikePost(BaseModel):\n    user_id : int\n    post_id: int \n    liked: int",
+        "detail": "vocamuch.models.likepost",
         "documentation": {}
     },
     {
